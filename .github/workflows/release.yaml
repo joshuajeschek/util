@@ -35,7 +35,7 @@ jobs:
         env:
           ENV: ${{secrets.ENV}}
       - run: mvn -B test --file pom.xml
-  # TEST INSTALLERS
+  # COMPILE INSTALLERS
   linux-installer:
     runs-on: ubuntu-latest
     needs: run-tests
@@ -192,7 +192,7 @@ jobs:
         id: auto-commit-action
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          file_pattern: pom.xml test.txt
+          file_pattern: pom.xml
           commit_message: '[chore] bump version to ${{ github.event.inputs.tag }}'
           commit_user_name: 'weichbot10'
           commit_user_email: 'weichbot10@users.noreply.github.com'
